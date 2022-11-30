@@ -3,7 +3,7 @@
 [![Build Lens](https://github.com/beliys/OpenLens/actions/workflows/main.yml/badge.svg)](https://github.com/beliys/OpenLens/actions/workflows/main.yml)
 
 ##  Build Repo Only
-This is repo **only provides binaries** for the OpenLens repo. For software issues regarding OpenLens or the Lens IDE, go to the [Lens repo](https://github.com/lensapp/lens/issues) and open an issue there.
+This repo **ONLY PROVIDES SIGNED BINARIES AND DOES NOT ALTER SOURCE CODE** for the OpenLens repo. For software issues regarding OpenLens or the Lens IDE, go to the [Lens repo](https://github.com/lensapp/lens/issues) and open an issue there.
 
 ## Overview
 
@@ -37,3 +37,10 @@ brew install --cask openlens
 scoop bucket add extras
 scoop install openlens
 ```
+
+## Thanks
+Big Thanks to
+[Ebby Peter](https://github.com/ebbypeter)
+,
+[Xaver Lohmüller](https://github.com/xavierLowmiller)
+and those who all supported to raise funds, for their contributions to signing the app for the community
