@@ -12,7 +12,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-20.04, macos-latest, windows-latest]
+        os: [ubuntu-20.04, macos-latest]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 360
     steps:
@@ -36,9 +36,6 @@ jobs:
       - name: Build Lens
         run: |
           mkdir releasefiles
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            choco install visualstudio2019buildtools visualstudio2019-workload-vctools
-          fi
           if [ "$RUNNER_OS" == "macOS" ]; then
             if [ "${CSC_LINK}" = "" ]; then
               unset CSC_LINK
@@ -111,7 +108,6 @@ jobs:
             lens/dist/OpenLens-${{ env.LENS_VERSION }}*.deb
             lens/dist/OpenLens-${{ env.LENS_VERSION }}*.rpm
             lens/dist/OpenLens-${{ env.LENS_VERSION }}*.zip
-            lens/dist/OpenLens-${{ env.LENS_VERSION }}.exe
             lens/dist/OpenLens-${{ env.LENS_VERSION }}*.sha256
 
       - name: Generate Changelog
@@ -128,7 +124,6 @@ jobs:
             lens/dist/OpenLens-${{ env.LENS_VERSION }}*.deb
             lens/dist/OpenLens-${{ env.LENS_VERSION }}*.rpm
             lens/dist/OpenLens-${{ env.LENS_VERSION }}*.zip
-            lens/dist/OpenLens-${{ env.LENS_VERSION }}.exe
             lens/dist/OpenLens-${{ env.LENS_VERSION }}*.sha256
       - name: Latest
         uses: softprops/action-gh-release@v0.1.14
@@ -141,5 +136,4 @@ jobs:
             lens/dist/OpenLens-${{ env.LENS_VERSION }}*.deb
             lens/dist/OpenLens-${{ env.LENS_VERSION }}*.rpm
             lens/dist/OpenLens-${{ env.LENS_VERSION }}*.zip
-            lens/dist/OpenLens.Setup.${{ env.LENS_VERSION }}.exe
             lens/dist/lates*.yml
